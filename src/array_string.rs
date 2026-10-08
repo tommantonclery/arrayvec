@@ -34,9 +34,13 @@ use serde::{Serialize, Deserialize, Serializer, Deserializer};
 /// if needed.
 #[derive(Copy)]
 #[repr(C)]
+#[cfg_attr(feature = "debuggable", derive(debuggable::Debuggable))]
+#[cfg_attr(feature = "debuggable", debuggable(summary = "{xs}"))]
 pub struct ArrayString<const CAP: usize> {
     // the `len` first elements of the array are initialized
+    #[cfg_attr(feature = "debuggable", debuggable(hide))]
     len: LenUint,
+    #[cfg_attr(feature = "debuggable", debuggable(text, len = "len", hide))]
     xs: [MaybeUninit<u8>; CAP],
 }
 

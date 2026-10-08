@@ -15,6 +15,11 @@
 //!   - Optional
 //!   - Implement `Zeroize` for ArrayVec and ArrayString
 //!
+//! - `debuggable`
+//!   - Optional
+//!   - Show the contents of ArrayVec and ArrayString in GDB, LLDB and VS Code, using
+//!     [debuggable](https://docs.rs/debuggable). Requires Rust 1.75 or later.
+//!
 //! ## Rust Version
 //!
 //! This version of arrayvec requires Rust 1.51 or later.
